@@ -12,6 +12,6 @@ RUN wget https://raw.githubusercontent.com/jose-pr/MediaBrowser.Releases/master/
 
 RUN dnf update -y MediaBrowserServer-repositories
 
-RUN yum-config-manager --enable MediaBrowserServer-Dependancies
+RUN dnf config-manager --enable MediaBrowserServer-Dependancies
 
 RUN dnf install -y MediaBrowserServer
