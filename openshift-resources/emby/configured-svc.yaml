@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: emby-configured
+  name: emby-configured
+spec:
+  ports:
+  - name: 1900-udp
+    port: 1900
+    protocol: UDP
+    targetPort: 1900
+  - name: 7359-udp
+    port: 7359
+    protocol: UDP
+    targetPort: 7359
+  - name: 8096-tcp
+    port: 8096
+    protocol: TCP
+    targetPort: 8096
+  - name: 8920-tcp
+    port: 8920
+    protocol: TCP
+    targetPort: 8920
+  selector:
+    app: emby-configured
+    deploymentconfig: emby-configured
+  sessionAffinity: None
+  type: ClusterIP
