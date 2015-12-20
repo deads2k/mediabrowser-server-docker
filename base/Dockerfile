@@ -10,7 +10,7 @@ RUN dnf install -y wget && yum clean all
 
 RUN wget https://raw.githubusercontent.com/jose-pr/MediaBrowser.Releases/master/Repository/MediaBrowserServer-repositories.noarch.rpm && rpm -i MediaBrowserServer-repositories.noarch.rpm
 
-RUN dnf update MediaBrowserServer-repositories
+RUN dnf update -y MediaBrowserServer-repositories
 
 RUN yum-config-manager --enable MediaBrowserServer-Dependancies
 
