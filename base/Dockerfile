@@ -8,10 +8,13 @@ RUN dnf install -y --nogpgcheck \
 
 RUN dnf install -y wget && yum clean all
 
-RUN wget https://raw.githubusercontent.com/jose-pr/MediaBrowser.Releases/master/Repository/MediaBrowserServer-repositories.noarch.rpm && rpm -i MediaBrowserServer-repositories.noarch.rpm
+#RUN wget https://raw.githubusercontent.com/jose-pr/MediaBrowser.Releases/master/Repository/MediaBrowserServer-repositories.noarch.rpm && rpm -i MediaBrowserServer-repositories.noarch.rpm
 
-RUN dnf update -y MediaBrowserServer-repositories
+#RUN dnf update -y MediaBrowserServer-repositories
 
-RUN dnf install -y 'dnf-command(config-manager)' && dnf config-manager --enable MediaBrowserServer-Dependancies
+#RUN dnf install -y 'dnf-command(config-manager)' && dnf config-manager --enable MediaBrowserServer-Dependancies
 
-RUN dnf install -y MediaBrowserServer
+
+RUN wget http://download.opensuse.org/repositories/home:/emby/Fedora_23/home:emby.repo -O /etc/yum.repos.d/emby.repo
+
+RUN dnf install -y emby-server
