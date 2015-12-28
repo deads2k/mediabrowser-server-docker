@@ -8,4 +8,5 @@ RUN dnf install -y wget && yum clean all
 
 RUN wget http://download.opensuse.org/repositories/home:/emby/Fedora_23/home:emby.repo -O /etc/yum.repos.d/emby.repo
 
-RUN dnf install -y emby-server && yum clean all
+# might need --nogpgcheck to satisfy ffmpeg for some weird reason.
+RUN dnf install -y ffmpeg emby-server && yum clean all
